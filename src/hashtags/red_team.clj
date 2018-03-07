@@ -17,12 +17,19 @@
 ; Look at the first 10 tokens
 ;(take 10 (read-file-to-tokens "apple-tweets.txt"))
 
+(defn is-hashtag?
+  [word]
+  (if (identical? (first word)  \#)
+    true
+    false))
+  
+
 (defn get-hashtags
   "Takes a list of string tokens and returns just the hashtags
   - parameters: list of string tokens
   - returns: any string token that starts with #"
   [string-tokens]
-  :replace-me)
+  (filter is-hashtag? string-tokens))
 
 ; Test it:
 ; (get-hashtags '("notHashtag" "#hashtag" "#college" "computer"))
@@ -35,7 +42,7 @@
   - can assume read-file-to-tokens and get-hashtags functions work
   - look into: frequencies"
   [filename]
-  :replace-me)
+  (frequencies (get-hashtags (read-file-to-tokens filename))))
 
 ; See the first 10 hashtag/frequencies
 ;(take 10 (hashtag-frequencies "apple-tweets.txt"))
@@ -48,7 +55,7 @@
   - can assume hashtag-frequencies works
   - look into: sort-by (it works on maps!)"
   [filename n]
-  :replace-me)
+  (take n ((sort-by val > (hashtag-frequencies filename)))))
   
 
 ;; At the end, this will return the 50 most common hashtags
