@@ -10,9 +10,7 @@
   - returns: list of tokens from the file -- anything separated by whitespace
   - look into: slurp, string/split"
   [filename]
-
-(clojure.string/split(slurp filename)#" " ))
-;  :replace-me)
+  (clojure.string/split(slurp filename)#" " ))
 
 ; Look at the first 10 tokens
 ;(take 10 (read-file-to-tokens "apple-tweets.txt"))
