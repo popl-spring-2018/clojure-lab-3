@@ -12,7 +12,8 @@
   [filename]
 
 (clojure.string/split(slurp filename)#" " ))
-;  :replace-me)
+
+;:replace-me)
 
 ; Look at the first 10 tokens
 ;(take 10 (read-file-to-tokens "apple-tweets.txt"))
