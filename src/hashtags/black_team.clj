@@ -46,8 +46,8 @@
   - can assume hashtag-frequencies works
   - look into: sort-by (it works on maps!)"
   [filename n]
-  :replace-me)
-  
+  (take n(sort-by val > (hashtag-frequencies filename))))
+
 
 ;; At the end, this will return the 50 most common hashtags
 ;(sorted-hashtag-frequencies "apple-tweets.txt" 50)
