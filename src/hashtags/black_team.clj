@@ -22,7 +22,8 @@
   - parameters: list of string tokens
   - returns: any string token that starts with #"
   [string-tokens]
-  :replace-me)
+  (filter #(= "#" (first %)) string-tokens))
+
 
 ; Test it:
 ; (get-hashtags '("notHashtag" "#hashtag" "#college" "computer"))
@@ -48,7 +49,7 @@
   - can assume hashtag-frequencies works
   - look into: sort-by (it works on maps!)"
   [filename n]
-  (take n(sort-by val > (hashtag-frequencies filename))))
+  (take n (sort-by val > (hashtag-frequencies filename))))
 
 
 ;; At the end, this will return the 50 most common hashtags
