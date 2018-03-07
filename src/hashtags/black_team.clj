@@ -20,7 +20,7 @@
   - parameters: list of string tokens
   - returns: any string token that starts with #"
   [string-tokens]
-  (filter #(= "#" (first %)) string-tokens))
+  (filter #(= \# (first %)) string-tokens))
 
 
 ; Test it:
