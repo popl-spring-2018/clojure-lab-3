@@ -20,7 +20,8 @@
   - parameters: list of string tokens
   - returns: any string token that starts with #"
   [string-tokens]
-  :replace-me)
+  (filter #(= "#" (first %)) string-tokens))
+
 
 ; Test it:
 ; (get-hashtags '("notHashtag" "#hashtag" "#college" "computer"))
