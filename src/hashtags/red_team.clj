@@ -40,7 +40,7 @@
   - can assume read-file-to-tokens and get-hashtags functions work
   - look into: frequencies"
   [filename]
-  :replace-me)
+  (frequencies (get-hashtags (read-file-to-tokens filename))))
 
 ; See the first 10 hashtag/frequencies
 ;(take 10 (hashtag-frequencies "apple-tweets.txt"))
@@ -53,7 +53,7 @@
   - can assume hashtag-frequencies works
   - look into: sort-by (it works on maps!)"
   [filename n]
-  :replace-me)
+  (take n ((sort-by val > (hashtag-frequencies filename)))))
   
 
 ;; At the end, this will return the 50 most common hashtags

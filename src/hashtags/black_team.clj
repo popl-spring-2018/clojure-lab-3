@@ -10,7 +10,9 @@
   - returns: list of tokens from the file -- anything separated by whitespace
   - look into: slurp, string/split"
   [filename]
-  :replace-me)
+
+(clojure.string/split(slurp filename)#" " ))
+;  :replace-me)
 
 ; Look at the first 10 tokens
 ;(take 10 (read-file-to-tokens "apple-tweets.txt"))
@@ -20,7 +22,8 @@
   - parameters: list of string tokens
   - returns: any string token that starts with #"
   [string-tokens]
-  :replace-me)
+  (filter #(= "#" (first %)) string-tokens))
+
 
 ; Test it:
 ; (get-hashtags '("notHashtag" "#hashtag" "#college" "computer"))
@@ -33,7 +36,7 @@
   - can assume read-file-to-tokens and get-hashtags functions work
   - look into: frequencies"
   [filename]
-  :replace-me)
+  (frequencies (get-hashtags (read-file-to-tokens filename))))
 
 ; See the first 10 hashtag/frequencies
 ;(take 10 (hashtag-frequencies "apple-tweets.txt"))
@@ -46,8 +49,8 @@
   - can assume hashtag-frequencies works
   - look into: sort-by (it works on maps!)"
   [filename n]
-  :replace-me)
-  
+  (take n (sort-by val > (hashtag-frequencies filename))))
+
 
 ;; At the end, this will return the 50 most common hashtags
 ;(sorted-hashtag-frequencies "apple-tweets.txt" 50)
