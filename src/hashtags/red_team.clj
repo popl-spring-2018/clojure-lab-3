@@ -33,7 +33,7 @@
   - can assume read-file-to-tokens and get-hashtags functions work
   - look into: frequencies"
   [filename]
-  :replace-me)
+  (frequencies (get-hashtags (read-file-to-tokens filename))))
 
 ; See the first 10 hashtag/frequencies
 ;(take 10 (hashtag-frequencies "apple-tweets.txt"))
