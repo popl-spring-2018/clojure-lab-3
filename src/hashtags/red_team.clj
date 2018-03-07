@@ -15,12 +15,19 @@
 ; Look at the first 10 tokens
 ;(take 10 (read-file-to-tokens "apple-tweets.txt"))
 
+(defn is-hashtag?
+  [word]
+  (if (identical? (first word)  \#)
+    true
+    false))
+  
+
 (defn get-hashtags
   "Takes a list of string tokens and returns just the hashtags
   - parameters: list of string tokens
   - returns: any string token that starts with #"
   [string-tokens]
-  :replace-me)
+  (filter is-hashtag? string-tokens))
 
 ; Test it:
 ; (get-hashtags '("notHashtag" "#hashtag" "#college" "computer"))
